@@ -6,8 +6,10 @@ export const MovieDetail = () => {
   const params = useParams();
   const [movie, setMovie] = useState({});
   const image = movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : 'https://images.pexels.com/photos/10732205/pexels-photo-10732205.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
- //eslint-disable-next-line
+ 
+  //eslint-disable-next-line
   const pageTitle = useTitle(movie.title);
+  
   useEffect(() => {
     async function fetchMovie() {
       const response = await fetch(`https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.REACT_APP_API_KEY}`);
